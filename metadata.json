@@ -1,0 +1,6 @@
+{
+  "name": "Achados VIP - Afiliados Mercado Livre e Shopee",
+  "description": "Landing page de alta conversão para afiliados do Mercado Livre e Shopee com direcionamento direto para grupo exclusivo no WhatsApp.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
