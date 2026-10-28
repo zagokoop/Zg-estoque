@@ -7,6 +7,7 @@ import React, { useState, useEffect } from 'react';
 import { Header } from './components/Header';
 import { Hero } from './components/Hero';
 import { ProofBar } from './components/ProofBar';
+import { WhatsAppGroupsSection } from './components/WhatsAppGroupsSection';
 import { WhatsAppBenefits } from './components/WhatsAppBenefits';
 import { HowItWorks } from './components/HowItWorks';
 import { Testimonials } from './components/Testimonials';
@@ -24,11 +25,17 @@ export default function App() {
       const saved = localStorage.getItem('achados_vip_config');
       if (saved) {
         const parsed = JSON.parse(saved);
-        return { ...parsed, whatsappGroupUrl: TARGET_WHATSAPP_URL };
+        return {
+          ...INITIAL_CONFIG,
+          ...parsed,
+          whatsappGroupUrl: parsed.whatsappGroupUrl || TARGET_WHATSAPP_URL,
+          whatsappGroupEletronicosUrl: parsed.whatsappGroupEletronicosUrl || TARGET_WHATSAPP_URL,
+          whatsappGroupCasaUrl: parsed.whatsappGroupCasaUrl || TARGET_WHATSAPP_URL,
+        };
       }
-      return { ...INITIAL_CONFIG, whatsappGroupUrl: TARGET_WHATSAPP_URL };
+      return INITIAL_CONFIG;
     } catch {
-      return { ...INITIAL_CONFIG, whatsappGroupUrl: TARGET_WHATSAPP_URL };
+      return INITIAL_CONFIG;
     }
   });
 
@@ -43,15 +50,24 @@ export default function App() {
 
       {/* Main Content */}
       <main className="flex-1">
-        {/* Hero Section with WhatsApp CTA */}
+        {/* Hero Section with WhatsApp CTAs */}
         <Hero
           whatsappUrl={config.whatsappGroupUrl}
+          eletronicosUrl={config.whatsappGroupEletronicosUrl}
+          casaUrl={config.whatsappGroupCasaUrl}
           whatsappGroupName={config.whatsappGroupName}
           announcementText={config.announcementText}
         />
 
         {/* Real Quantitative Proof Bar */}
         <ProofBar />
+
+        {/* Dedicated Group Selector Section (Geral, Eletrônicos, Casa & Decoração) */}
+        <WhatsAppGroupsSection
+          generalUrl={config.whatsappGroupUrl}
+          eletronicosUrl={config.whatsappGroupEletronicosUrl}
+          casaUrl={config.whatsappGroupCasaUrl}
+        />
 
         {/* WhatsApp VIP Benefits Section */}
         <WhatsAppBenefits
@@ -70,10 +86,18 @@ export default function App() {
       </main>
 
       {/* Sticky Quick-Action Bar for Mobile & Desktop */}
-      <StickyWhatsAppBar whatsappUrl={config.whatsappGroupUrl} />
+      <StickyWhatsAppBar
+        whatsappUrl={config.whatsappGroupUrl}
+        eletronicosUrl={config.whatsappGroupEletronicosUrl}
+        casaUrl={config.whatsappGroupCasaUrl}
+      />
 
       {/* Footer */}
-      <Footer whatsappUrl={config.whatsappGroupUrl} />
+      <Footer
+        whatsappUrl={config.whatsappGroupUrl}
+        eletronicosUrl={config.whatsappGroupEletronicosUrl}
+        casaUrl={config.whatsappGroupCasaUrl}
+      />
     </div>
   );
 }

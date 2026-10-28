@@ -3,9 +3,15 @@ import { MessageCircle, ArrowRight } from 'lucide-react';
 
 interface StickyWhatsAppBarProps {
   whatsappUrl: string;
+  eletronicosUrl?: string;
+  casaUrl?: string;
 }
 
-export const StickyWhatsAppBar: React.FC<StickyWhatsAppBarProps> = ({ whatsappUrl }) => {
+export const StickyWhatsAppBar: React.FC<StickyWhatsAppBarProps> = ({
+  whatsappUrl,
+  eletronicosUrl,
+  casaUrl,
+}) => {
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
@@ -26,7 +32,7 @@ export const StickyWhatsAppBar: React.FC<StickyWhatsAppBarProps> = ({ whatsappUr
 
   return (
     <aside 
-      aria-label="Acesso rápido ao grupo VIP no WhatsApp"
+      aria-label="Acesso rápido aos grupos no WhatsApp"
       className="fixed bottom-0 inset-x-0 z-40 bg-neutral-950/95 backdrop-blur-md border-t border-neutral-800 shadow-2xl py-2 px-4 transition-transform duration-300 transform translate-y-0 max-h-[64px] flex items-center"
     >
       <div className="max-w-7xl mx-auto w-full flex items-center justify-between gap-3">
@@ -37,26 +43,49 @@ export const StickyWhatsAppBar: React.FC<StickyWhatsAppBarProps> = ({ whatsappUr
             className="w-7 h-7 rounded-full object-cover border border-amber-400/60 shrink-0"
             referrerPolicy="no-referrer"
           />
-          <div className="hidden sm:flex items-center gap-2">
-            <span className="font-bold text-white">ZG Estoque VIP</span>
+          <div className="hidden md:flex items-center gap-2">
+            <span className="font-bold text-white">ZG Estoque</span>
             <span className="text-neutral-500">·</span>
-            <span className="text-neutral-400">Cupons e bugs de preço do Mercado Livre & Shopee em tempo real</span>
+            <span className="text-neutral-400">Grupos de Ofertas no WhatsApp</span>
           </div>
-          <div className="sm:hidden text-xs font-semibold text-white truncate">
-            ZG Estoque · Cupons VIP
+          <div className="md:hidden text-xs font-semibold text-white truncate">
+            Grupos WhatsApp
           </div>
         </div>
 
-        <a
-          href={whatsappUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-flex items-center gap-2 px-4 py-2 sm:px-6 sm:py-2.5 text-xs font-bold text-neutral-950 bg-emerald-500 hover:bg-emerald-400 rounded-lg shadow-sm shadow-emerald-500/20 whitespace-nowrap shrink-0 active:scale-95 transition-all"
-        >
-          <MessageCircle className="w-4 h-4 fill-neutral-950" />
-          <span>Entrar no WhatsApp</span>
-          <ArrowRight className="w-3.5 h-3.5 ml-0.5 hidden xs:inline" />
-        </a>
+        {/* Group Action Buttons */}
+        <div className="flex items-center gap-2 shrink-0">
+          <a
+            href={eletronicosUrl || whatsappUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-bold text-cyan-300 bg-neutral-900 hover:bg-neutral-800 border border-cyan-500/30 rounded-lg transition-all"
+            title="Grupo de Eletrônicos & Tech"
+          >
+            <span>⚡ Eletrônicos</span>
+          </a>
+
+          <a
+            href={casaUrl || whatsappUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-bold text-amber-300 bg-neutral-900 hover:bg-neutral-800 border border-amber-500/30 rounded-lg transition-all"
+            title="Grupo de Casa & Decoração"
+          >
+            <span>🏡 Casa & Decor</span>
+          </a>
+
+          <a
+            href={whatsappUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-1.5 px-3.5 py-1.5 sm:px-4 sm:py-2 text-xs font-bold text-neutral-950 bg-emerald-500 hover:bg-emerald-400 rounded-lg shadow-sm shadow-emerald-500/20 whitespace-nowrap active:scale-95 transition-all"
+          >
+            <MessageCircle className="w-3.5 h-3.5 fill-neutral-950" />
+            <span>Grupo VIP Geral</span>
+            <ArrowRight className="w-3 h-3 ml-0.5 hidden xs:inline" />
+          </a>
+        </div>
       </div>
     </aside>
   );

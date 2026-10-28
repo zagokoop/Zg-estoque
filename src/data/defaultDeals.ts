@@ -4,10 +4,12 @@ export const LOGO_PATH = '/assets/aistudio/WhatsApp_Image_2026-10-22_at_13.42.57
 
 export const INITIAL_CONFIG = {
   whatsappGroupUrl: 'https://chat.whatsapp.com/Grg7d2hzXW4ExzZrnvEaLz?s=cl&p=i&mlu=4&ilr=4',
+  whatsappGroupEletronicosUrl: 'https://chat.whatsapp.com/Grg7d2hzXW4ExzZrnvEaLz?s=cl&p=i&mlu=4&ilr=4',
+  whatsappGroupCasaUrl: 'https://chat.whatsapp.com/Grg7d2hzXW4ExzZrnvEaLz?s=cl&p=i&mlu=4&ilr=4',
   whatsappGroupName: 'ZG Estoque VIP · Achados & Cupons',
   shopeeAffiliateCode: 'ZGESTOQUE',
   mercadolivreAffiliateCode: 'ZGESTOQUE-ML',
-  announcementText: '🔥 14 cupons secretos liberados hoje! Entre no WhatsApp da ZG Estoque.',
+  announcementText: '🔥 Grupos de Eletrônicos e Casa & Decoração liberados! Escolha seus grupos abaixo.',
 };
 
 export const INITIAL_PRODUCTS: AffiliateProduct[] = [

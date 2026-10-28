@@ -26,8 +26,11 @@ export const Header: React.FC<HeaderProps> = ({ whatsappUrl }) => {
           </div>
         </a>
 
-        {/* Zone 2: 4 concise single-line nav links */}
-        <nav className="hidden md:flex items-center gap-7 text-sm font-medium text-neutral-300">
+        {/* Zone 2: 5 concise single-line nav links */}
+        <nav className="hidden md:flex items-center gap-6 text-sm font-medium text-neutral-300">
+          <a href="#grupos" className="text-amber-400 font-semibold hover:text-amber-300 transition-colors whitespace-nowrap shrink-0">
+            Nossos Grupos
+          </a>
           <a href="#beneficios" className="hover:text-white transition-colors whitespace-nowrap shrink-0">
             Vantagens VIP
           </a>

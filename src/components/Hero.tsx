@@ -1,13 +1,21 @@
 import React from 'react';
-import { MessageCircle, ShieldCheck, Zap, Sparkles, ArrowRight } from 'lucide-react';
+import { MessageCircle, ShieldCheck, Zap, Sparkles, ArrowRight, Laptop, Home } from 'lucide-react';
 
 interface HeroProps {
   whatsappUrl: string;
+  eletronicosUrl?: string;
+  casaUrl?: string;
   whatsappGroupName: string;
   announcementText: string;
 }
 
-export const Hero: React.FC<HeroProps> = ({ whatsappUrl, whatsappGroupName, announcementText }) => {
+export const Hero: React.FC<HeroProps> = ({
+  whatsappUrl,
+  eletronicosUrl,
+  casaUrl,
+  whatsappGroupName,
+  announcementText,
+}) => {
   return (
     <section className="relative overflow-hidden pt-8 pb-16 lg:pt-14 lg:pb-24 border-b border-neutral-800">
       {/* Background ambient lighting */}
@@ -65,8 +73,9 @@ export const Hero: React.FC<HeroProps> = ({ whatsappUrl, whatsappGroupName, anno
               Economize até 80% em compras diárias. Nossa equipe garimpa e verifica ofertas relâmpago, cupons com frete grátis e promoções imperdíveis antes que o estoque esgote.
             </p>
 
-            {/* Main Action Block - Single Focused WhatsApp Button */}
-            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 justify-center lg:justify-start mb-6">
+            {/* Main Action Block - Group Buttons */}
+            <div className="flex flex-col gap-3 justify-center lg:justify-start mb-6">
+              {/* Primary Main WhatsApp VIP Button */}
               <a
                 href={whatsappUrl}
                 target="_blank"
@@ -74,9 +83,32 @@ export const Hero: React.FC<HeroProps> = ({ whatsappUrl, whatsappGroupName, anno
                 className="inline-flex items-center justify-center gap-3 px-8 py-4 text-base font-bold text-neutral-950 bg-emerald-500 hover:bg-emerald-400 active:scale-[0.98] rounded-xl transition-all shadow-lg shadow-emerald-500/25 whitespace-nowrap"
               >
                 <MessageCircle className="w-5 h-5 fill-neutral-950" />
-                <span>Entrar no Grupo VIP do WhatsApp</span>
+                <span>Entrar no Grupo Geral VIP</span>
                 <ArrowRight className="w-4 h-4 ml-1" />
               </a>
+
+              {/* Quick Specific Group Buttons */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+                <a
+                  href={eletronicosUrl || whatsappUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center gap-2 px-4 py-3 text-xs sm:text-sm font-bold text-cyan-300 bg-neutral-900 hover:bg-neutral-800 border border-cyan-500/30 hover:border-cyan-400 rounded-xl transition-all active:scale-[0.98] shadow-sm"
+                >
+                  <Laptop className="w-4 h-4 text-cyan-400" />
+                  <span>Grupo Eletrônicos & Tech</span>
+                </a>
+
+                <a
+                  href={casaUrl || whatsappUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center gap-2 px-4 py-3 text-xs sm:text-sm font-bold text-amber-300 bg-neutral-900 hover:bg-neutral-800 border border-amber-500/30 hover:border-amber-400 rounded-xl transition-all active:scale-[0.98] shadow-sm"
+                >
+                  <Home className="w-4 h-4 text-amber-400" />
+                  <span>Grupo Casa & Decoração</span>
+                </a>
+              </div>
             </div>
 
             {/* Trust & Policy Indicators (Clean unboxed metadata) */}

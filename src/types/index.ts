@@ -30,6 +30,8 @@ export interface AffiliateProduct {
 
 export interface AffiliateConfig {
   whatsappGroupUrl: string;
+  whatsappGroupEletronicosUrl: string;
+  whatsappGroupCasaUrl: string;
   whatsappGroupName: string;
   shopeeAffiliateCode: string;
   mercadolivreAffiliateCode: string;

@@ -3,10 +3,17 @@ import { MessageCircle, ShieldCheck } from 'lucide-react';
 
 interface FooterProps {
   whatsappUrl: string;
+  eletronicosUrl?: string;
+  casaUrl?: string;
   onOpenConfig?: () => void;
 }
 
-export const Footer: React.FC<FooterProps> = ({ whatsappUrl, onOpenConfig }) => {
+export const Footer: React.FC<FooterProps> = ({
+  whatsappUrl,
+  eletronicosUrl,
+  casaUrl,
+  onOpenConfig,
+}) => {
   return (
     <footer className="bg-neutral-950 border-t border-neutral-800 text-neutral-400 text-xs py-12 pb-24 sm:pb-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -41,6 +48,9 @@ export const Footer: React.FC<FooterProps> = ({ whatsappUrl, onOpenConfig }) => 
             </h4>
             <ul className="space-y-2">
               <li>
+                <a href="#grupos" className="text-amber-400 hover:text-amber-300 font-medium transition-colors">Nossos Grupos</a>
+              </li>
+              <li>
                 <a href="#beneficios" className="hover:text-white transition-colors">Vantagens VIP</a>
               </li>
               <li>
@@ -55,28 +65,46 @@ export const Footer: React.FC<FooterProps> = ({ whatsappUrl, onOpenConfig }) => 
             </ul>
           </div>
 
-          {/* Col 3: Comunidade & Config */}
+          {/* Col 3: Grupos no WhatsApp */}
           <div>
             <h4 className="text-xs font-bold uppercase tracking-wider text-neutral-200 mb-3">
-              Comunidade
+              Grupos no WhatsApp
             </h4>
-            <div className="space-y-3">
+            <div className="space-y-2">
               <a
                 href={whatsappUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-3 py-1.5 text-xs font-bold text-neutral-950 bg-emerald-500 hover:bg-emerald-400 rounded-lg transition-colors"
+                className="flex items-center gap-2 text-xs font-semibold text-emerald-400 hover:text-emerald-300 transition-colors"
               >
-                <MessageCircle className="w-3.5 h-3.5 fill-neutral-950" />
-                <span>Entrar no WhatsApp</span>
+                <MessageCircle className="w-3.5 h-3.5 fill-emerald-400 shrink-0" />
+                <span>Grupo Geral VIP</span>
+              </a>
+              <a
+                href={eletronicosUrl || whatsappUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 text-xs font-semibold text-cyan-400 hover:text-cyan-300 transition-colors"
+              >
+                <MessageCircle className="w-3.5 h-3.5 fill-cyan-400 shrink-0" />
+                <span>Grupo Eletrônicos & Tech</span>
+              </a>
+              <a
+                href={casaUrl || whatsappUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 text-xs font-semibold text-amber-400 hover:text-amber-300 transition-colors"
+              >
+                <MessageCircle className="w-3.5 h-3.5 fill-amber-400 shrink-0" />
+                <span>Grupo Casa & Decoração</span>
               </a>
               {onOpenConfig && (
                 <div>
                   <button
                     onClick={onOpenConfig}
-                    className="text-neutral-500 hover:text-neutral-300 text-[11px] underline block mt-2"
+                    className="text-neutral-500 hover:text-neutral-300 text-[11px] underline block mt-3"
                   >
-                    Painel do Afiliado (Configurar Links)
+                    Painel do Afiliado
                   </button>
                 </div>
               )}
