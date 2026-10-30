@@ -8,8 +8,9 @@ import { Header } from './components/Header';
 import { Hero } from './components/Hero';
 import { ProofBar } from './components/ProofBar';
 import { WhatsAppGroupsSection } from './components/WhatsAppGroupsSection';
-import { WhatsAppBenefits } from './components/WhatsAppBenefits';
-import { HowItWorks } from './components/HowItWorks';
+import { SavingsSimulator } from './components/SavingsSimulator';
+import { MethodologySection } from './components/MethodologySection';
+import { SecurityCommitment } from './components/SecurityCommitment';
 import { Testimonials } from './components/Testimonials';
 import { FaqSection } from './components/FaqSection';
 import { Footer } from './components/Footer';
@@ -28,14 +29,24 @@ export default function App() {
         return {
           ...INITIAL_CONFIG,
           ...parsed,
-          whatsappGroupUrl: parsed.whatsappGroupUrl || TARGET_WHATSAPP_URL,
-          whatsappGroupEletronicosUrl: parsed.whatsappGroupEletronicosUrl || TARGET_WHATSAPP_URL,
-          whatsappGroupCasaUrl: parsed.whatsappGroupCasaUrl || TARGET_WHATSAPP_URL,
+          whatsappGroupUrl: TARGET_WHATSAPP_URL,
+          whatsappGroupEletronicosUrl: TARGET_WHATSAPP_URL,
+          whatsappGroupCasaUrl: TARGET_WHATSAPP_URL,
         };
       }
-      return INITIAL_CONFIG;
+      return {
+        ...INITIAL_CONFIG,
+        whatsappGroupUrl: TARGET_WHATSAPP_URL,
+        whatsappGroupEletronicosUrl: TARGET_WHATSAPP_URL,
+        whatsappGroupCasaUrl: TARGET_WHATSAPP_URL,
+      };
     } catch {
-      return INITIAL_CONFIG;
+      return {
+        ...INITIAL_CONFIG,
+        whatsappGroupUrl: TARGET_WHATSAPP_URL,
+        whatsappGroupEletronicosUrl: TARGET_WHATSAPP_URL,
+        whatsappGroupCasaUrl: TARGET_WHATSAPP_URL,
+      };
     }
   });
 
@@ -44,13 +55,13 @@ export default function App() {
   }, [config]);
 
   return (
-    <div className="min-h-screen bg-neutral-950 text-neutral-100 flex flex-col font-sans">
-      {/* Navigation Header */}
+    <div className="min-h-screen bg-[#0A0C10] text-neutral-100 flex flex-col font-sans selection:bg-amber-400 selection:text-neutral-950">
+      {/* Executive Navigation Header */}
       <Header whatsappUrl={config.whatsappGroupUrl} />
 
-      {/* Main Content */}
+      {/* Main Structural Flow */}
       <main className="flex-1">
-        {/* Hero Section with WhatsApp CTAs */}
+        {/* 01. Hero Section with Live Audit & Direct Actions */}
         <Hero
           whatsappUrl={config.whatsappGroupUrl}
           eletronicosUrl={config.whatsappGroupEletronicosUrl}
@@ -59,40 +70,40 @@ export default function App() {
           announcementText={config.announcementText}
         />
 
-        {/* Real Quantitative Proof Bar */}
+        {/* 02. Institutional Metrics & Trust Proof Bar */}
         <ProofBar />
 
-        {/* Dedicated Group Selector Section (Geral, Eletrônicos, Casa & Decoração) */}
+        {/* 03. Specialized Transmission Channels (Master, Eletrônicos, Casa & Decor) */}
         <WhatsAppGroupsSection
           generalUrl={config.whatsappGroupUrl}
           eletronicosUrl={config.whatsappGroupEletronicosUrl}
           casaUrl={config.whatsappGroupCasaUrl}
         />
 
-        {/* WhatsApp VIP Benefits Section */}
-        <WhatsAppBenefits
-          whatsappUrl={config.whatsappGroupUrl}
-          whatsappGroupName={config.whatsappGroupName}
-        />
+        {/* 04. Interactive Annual Savings Calculator */}
+        <SavingsSimulator whatsappUrl={config.whatsappGroupUrl} />
 
-        {/* Step-by-Step Guide */}
-        <HowItWorks />
+        {/* 05. 4-Phase Governance & Auditing Protocol */}
+        <MethodologySection />
 
-        {/* Community Testimonials */}
+        {/* 06. Security, Privacy & Silence SLA */}
+        <SecurityCommitment />
+
+        {/* 07. Attributable Member Testimonials */}
         <Testimonials />
 
-        {/* Frequently Asked Questions */}
+        {/* 08. Objective FAQs */}
         <FaqSection />
       </main>
 
-      {/* Sticky Quick-Action Bar for Mobile & Desktop */}
+      {/* Discrete Bottom Quick-Action Bar for Mobile & Desktop */}
       <StickyWhatsAppBar
         whatsappUrl={config.whatsappGroupUrl}
         eletronicosUrl={config.whatsappGroupEletronicosUrl}
         casaUrl={config.whatsappGroupCasaUrl}
       />
 
-      {/* Footer */}
+      {/* Institutional Regulatory Footer */}
       <Footer
         whatsappUrl={config.whatsappGroupUrl}
         eletronicosUrl={config.whatsappGroupEletronicosUrl}

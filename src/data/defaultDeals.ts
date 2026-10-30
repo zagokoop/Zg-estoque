@@ -6,10 +6,10 @@ export const INITIAL_CONFIG = {
   whatsappGroupUrl: 'https://chat.whatsapp.com/Grg7d2hzXW4ExzZrnvEaLz?s=cl&p=i&mlu=4&ilr=4',
   whatsappGroupEletronicosUrl: 'https://chat.whatsapp.com/Grg7d2hzXW4ExzZrnvEaLz?s=cl&p=i&mlu=4&ilr=4',
   whatsappGroupCasaUrl: 'https://chat.whatsapp.com/Grg7d2hzXW4ExzZrnvEaLz?s=cl&p=i&mlu=4&ilr=4',
-  whatsappGroupName: 'ZG Estoque VIP · Achados & Cupons',
+  whatsappGroupName: 'ZG Estoque · Hub Oficial de Oportunidades',
   shopeeAffiliateCode: 'ZGESTOQUE',
   mercadolivreAffiliateCode: 'ZGESTOQUE-ML',
-  announcementText: '🔥 Grupos de Eletrônicos e Casa & Decoração liberados! Escolha seus grupos abaixo.',
+  announcementText: 'Radar ZG em operação · 18 novas oportunidades e cupons auditados nas últimas 3 horas',
 };
 
 export const INITIAL_PRODUCTS: AffiliateProduct[] = [

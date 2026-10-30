@@ -1,70 +1,64 @@
 import React from 'react';
-import { Users, TrendingDown, CheckCircle2, BellOff } from 'lucide-react';
+import { Users, TrendingDown, ShieldCheck, BellOff } from 'lucide-react';
 
 export const ProofBar: React.FC = () => {
+  const metrics = [
+    {
+      icon: Users,
+      value: '14.850+',
+      label: 'Membros Ativos',
+      sublabel: 'Usuários nos canais de transmissão',
+      accent: 'text-amber-400',
+    },
+    {
+      icon: TrendingDown,
+      value: 'R$ 340.000+',
+      label: 'Economia Auditada',
+      sublabel: 'Acumulada por membros em 2026',
+      accent: 'text-emerald-400',
+    },
+    {
+      icon: ShieldCheck,
+      value: '100%',
+      label: 'Links Oficiais',
+      sublabel: 'Sem intermediários ou desvios',
+      accent: 'text-blue-400',
+    },
+    {
+      icon: BellOff,
+      value: '0 Ruído',
+      label: 'Governança Estrita',
+      sublabel: 'Apenas alertas verificados pelos curadores',
+      accent: 'text-purple-400',
+    },
+  ];
+
   return (
-    <section className="bg-neutral-950 py-8 border-b border-neutral-800">
+    <section className="bg-[#0D0F14] py-8 border-b border-white/[0.08]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 lg:gap-8">
-          {/* Stat 1 */}
-          <div className="flex items-center gap-3.5">
-            <div className="w-10 h-10 rounded-lg bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-400 shrink-0">
-              <Users className="w-5 h-5" />
-            </div>
-            <div>
-              <div className="text-xl sm:text-2xl font-bold text-white font-mono tabular-nums">
-                14.850+
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 divide-y lg:divide-y-0 lg:divide-x divide-white/[0.08]">
+          {metrics.map((item, index) => {
+            const Icon = item.icon;
+            return (
+              <div 
+                key={index} 
+                className={`flex flex-col justify-center ${index > 0 ? 'pt-4 lg:pt-0 lg:pl-8' : ''}`}
+              >
+                <div className="flex items-center gap-2 mb-1.5">
+                  <Icon className={`w-4 h-4 ${item.accent}`} />
+                  <span className="text-[11px] font-bold uppercase tracking-wider text-neutral-400">
+                    {item.label}
+                  </span>
+                </div>
+                <div className="text-2xl sm:text-3xl font-extrabold text-white font-mono tabular-nums tracking-tight">
+                  {item.value}
+                </div>
+                <div className="text-xs text-neutral-400 mt-0.5">
+                  {item.sublabel}
+                </div>
               </div>
-              <div className="text-xs text-neutral-400">
-                Membros no WhatsApp
-              </div>
-            </div>
-          </div>
-
-          {/* Stat 2 */}
-          <div className="flex items-center gap-3.5">
-            <div className="w-10 h-10 rounded-lg bg-amber-500/10 border border-amber-500/20 flex items-center justify-center text-amber-400 shrink-0">
-              <TrendingDown className="w-5 h-5" />
-            </div>
-            <div>
-              <div className="text-xl sm:text-2xl font-bold text-white font-mono tabular-nums">
-                R$ 340k+
-              </div>
-              <div className="text-xs text-neutral-400">
-                Economizados em 2026
-              </div>
-            </div>
-          </div>
-
-          {/* Stat 3 */}
-          <div className="flex items-center gap-3.5">
-            <div className="w-10 h-10 rounded-lg bg-blue-500/10 border border-blue-500/20 flex items-center justify-center text-blue-400 shrink-0">
-              <CheckCircle2 className="w-5 h-5" />
-            </div>
-            <div>
-              <div className="text-xl sm:text-2xl font-bold text-white font-mono tabular-nums">
-                100%
-              </div>
-              <div className="text-xs text-neutral-400">
-                Lojas e Links Verificados
-              </div>
-            </div>
-          </div>
-
-          {/* Stat 4 */}
-          <div className="flex items-center gap-3.5">
-            <div className="w-10 h-10 rounded-lg bg-purple-500/10 border border-purple-500/20 flex items-center justify-center text-purple-400 shrink-0">
-              <BellOff className="w-5 h-5" />
-            </div>
-            <div>
-              <div className="text-xl sm:text-2xl font-bold text-white font-mono tabular-nums">
-                0 Spam
-              </div>
-              <div className="text-xs text-neutral-400">
-                Apenas Cupons e Achados
-              </div>
-            </div>
-          </div>
+            );
+          })}
         </div>
       </div>
     </section>

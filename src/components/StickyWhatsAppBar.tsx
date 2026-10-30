@@ -16,8 +16,8 @@ export const StickyWhatsAppBar: React.FC<StickyWhatsAppBarProps> = ({
 
   useEffect(() => {
     const handleScroll = () => {
-      // Show sticky bar once user scrolls past 350px
-      if (window.scrollY > 350) {
+      // Show sticky bar once user scrolls past 320px
+      if (window.scrollY > 320) {
         setVisible(true);
       } else {
         setVisible(false);
@@ -32,24 +32,25 @@ export const StickyWhatsAppBar: React.FC<StickyWhatsAppBarProps> = ({
 
   return (
     <aside 
-      aria-label="Acesso rápido aos grupos no WhatsApp"
-      className="fixed bottom-0 inset-x-0 z-40 bg-neutral-950/95 backdrop-blur-md border-t border-neutral-800 shadow-2xl py-2 px-4 transition-transform duration-300 transform translate-y-0 max-h-[64px] flex items-center"
+      aria-label="Barra de acesso rápido aos canais ZG Estoque no WhatsApp"
+      className="fixed bottom-0 inset-x-0 z-40 bg-[#0B0D12]/95 backdrop-blur-md border-t border-white/10 shadow-2xl py-2.5 px-4 transition-transform duration-300 max-h-[64px] flex items-center"
     >
-      <div className="max-w-7xl mx-auto w-full flex items-center justify-between gap-3">
-        <div className="flex items-center gap-2.5 text-xs truncate">
+      <div className="max-w-7xl mx-auto w-full flex items-center justify-between gap-4">
+        {/* Brand identity on left */}
+        <div className="flex items-center gap-3 text-xs truncate">
           <img
             src="/assets/aistudio/WhatsApp_Image_2026-10-22_at_13.42.57_08754572.jpeg"
             alt="ZG Estoque Logo"
-            className="w-7 h-7 rounded-full object-cover border border-amber-400/60 shrink-0"
+            className="w-8 h-8 rounded-full object-cover ring-1 ring-amber-400/50 shrink-0"
             referrerPolicy="no-referrer"
           />
           <div className="hidden md:flex items-center gap-2">
-            <span className="font-bold text-white">ZG Estoque</span>
-            <span className="text-neutral-500">·</span>
-            <span className="text-neutral-400">Grupos de Ofertas no WhatsApp</span>
+            <span className="font-extrabold text-white uppercase tracking-wider">ZG ESTOQUE</span>
+            <span className="text-neutral-600">|</span>
+            <span className="text-neutral-400">Radar & Curadoria Oficial no WhatsApp</span>
           </div>
-          <div className="md:hidden text-xs font-semibold text-white truncate">
-            Grupos WhatsApp
+          <div className="md:hidden text-xs font-bold text-white truncate">
+            ZG ESTOQUE VIP
           </div>
         </div>
 
@@ -59,30 +60,30 @@ export const StickyWhatsAppBar: React.FC<StickyWhatsAppBarProps> = ({
             href={eletronicosUrl || whatsappUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-bold text-cyan-300 bg-neutral-900 hover:bg-neutral-800 border border-cyan-500/30 rounded-lg transition-all"
-            title="Grupo de Eletrônicos & Tech"
+            className="hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-bold text-cyan-300 bg-white/[0.04] hover:bg-white/[0.08] border border-cyan-400/30 rounded-lg transition-all"
+            title="Canal de Eletrônicos & Tech"
           >
-            <span>⚡ Eletrônicos</span>
+            <span>Eletrônicos</span>
           </a>
 
           <a
             href={casaUrl || whatsappUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-bold text-amber-300 bg-neutral-900 hover:bg-neutral-800 border border-amber-500/30 rounded-lg transition-all"
-            title="Grupo de Casa & Decoração"
+            className="hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-bold text-amber-300 bg-white/[0.04] hover:bg-white/[0.08] border border-amber-400/30 rounded-lg transition-all"
+            title="Canal de Casa & Decoração"
           >
-            <span>🏡 Casa & Decor</span>
+            <span>Casa & Decor</span>
           </a>
 
           <a
             href={whatsappUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-1.5 px-3.5 py-1.5 sm:px-4 sm:py-2 text-xs font-bold text-neutral-950 bg-emerald-500 hover:bg-emerald-400 rounded-lg shadow-sm shadow-emerald-500/20 whitespace-nowrap active:scale-95 transition-all"
+            className="inline-flex items-center gap-2 px-4 py-2 text-xs font-bold uppercase tracking-wider text-neutral-950 bg-gradient-to-r from-amber-400 via-amber-300 to-amber-400 hover:brightness-110 rounded-lg shadow-sm shadow-amber-500/20 whitespace-nowrap active:scale-95 transition-all"
           >
             <MessageCircle className="w-3.5 h-3.5 fill-neutral-950" />
-            <span>Grupo VIP Geral</span>
+            <span>Canal Master VIP</span>
             <ArrowRight className="w-3 h-3 ml-0.5 hidden xs:inline" />
           </a>
         </div>
